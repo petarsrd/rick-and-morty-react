@@ -10,34 +10,43 @@ class App extends React.Component {
     this.goRight = this.goRight.bind(this);
     this.goLeft = this.goLeft.bind(this);
     this.setId = this.setId.bind(this);
-    this.state = { data: [], page: 1, id: null };
+    this.resetId = this.resetId.bind(this);
+    this.state = { obj: {}, listOfChar: [], page: 1, id: null };
   }
 
   setId = function (e) {
     this.setState({ id: e.id });
   };
 
+  resetId = function () {
+    this.setState({ id: null });
+  };
+
   fetchData = function () {
+    this.setState({ page: 1 });
     fetch("https://rickandmortyapi.com/api/character").then((res) =>
-      res.json().then((data) => this.setState({ data: data.results }))
+      res.json().then((data) => {
+        console.log(data.results);
+        this.setState({ obj: data, listOfChar: data.results });
+      })
     );
   };
 
   goRight = function () {
     this.setState({ page: (this.state.page += 1) });
-    fetch(
-      `https://rickandmortyapi.com/api/character/?page=${this.state.page}`
-    ).then((res) =>
-      res.json().then((data) => this.setState({ data: data.results }))
+    fetch(this.state.obj.info.next).then((res) =>
+      res
+        .json()
+        .then((data) => this.setState({ obj: data, listOfChar: data.results }))
     );
   };
 
   goLeft = function () {
     this.setState({ page: (this.state.page -= 1) });
-    fetch(
-      `https://rickandmortyapi.com/api/character/?page=${this.state.page}`
-    ).then((res) =>
-      res.json().then((data) => this.setState({ data: data.results }))
+    fetch(this.state.obj.info.prev).then((res) =>
+      res
+        .json()
+        .then((data) => this.setState({ obj: data, listOfChar: data.results }))
     );
   };
 
@@ -45,13 +54,20 @@ class App extends React.Component {
     return (
       <>
         {this.state.id ? (
-          <Charpage karakter={this.state.data[this.state.id]} />
+          <Charpage
+            reset={this.resetId}
+            karakter={
+              this.state.listOfChar[
+                this.state.id - 1 - (this.state.page - 1) * 20
+              ]
+            }
+          />
         ) : (
           <Homepage
             fetching={this.fetchData}
             right={this.goRight}
             left={this.goLeft}
-            podaci={this.state.data}
+            podaci={this.state.listOfChar}
             nadjiId={this.setId}
           />
         )}

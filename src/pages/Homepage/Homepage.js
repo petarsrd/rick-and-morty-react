@@ -11,16 +11,18 @@ class Homepage extends React.Component {
   render() {
     return (
       <>
-        <div className="buttons">
-          <button onClick={this.props.fetching}>Fecuj me</button>
-          <button onClick={this.props.left}>Go Left</button>
-          <button onClick={this.props.right}>Go Right</button>
-        </div>
+        <div className="main">
+          <div className="buttons">
+            <button onClick={this.props.fetching}>Get Cards</button>
+            <button onClick={this.props.left}>L</button>
+            <button onClick={this.props.right}>R</button>
+          </div>
 
-        <div className="card-wrapper">
-          {this.props.podaci.map((e) => {
-            return <Card click={this.props.nadjiId} karakter={e} />;
-          })}
+          <div className="card-wrapper">
+            {this.props.podaci.map((e) => {
+              return <Card click={this.props.nadjiId} karakter={e} />;
+            })}
+          </div>
         </div>
       </>
     );

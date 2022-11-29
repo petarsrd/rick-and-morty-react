@@ -1,0 +1,41 @@
+.wrap {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.dataCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+  text-align: center;
+}
+
+.dataCard > img {
+  align-self: center;
+  border-radius: 100px;
+  width: 60%;
+}
+
+.dataCard > .info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dataCard > .info > span {
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: rgb(184, 184, 44);
+}
+
+.dataCard > button {
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: rgb(184, 184, 44);
+  width: 30%;
+  align-self: center;
+}
