@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  background-color: lightblue;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-wrapper > div {
+  border: 1px solid black;
+  width: 300px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.card-wrapper > div > h1 {
+  font-size: 0.8em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
