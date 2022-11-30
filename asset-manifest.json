@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rick-and-morty-react/static/css/main.c9a81b37.css",
+    "main.js": "/rick-and-morty-react/static/js/main.6c7f086a.js",
+    "static/js/787.cbb9de33.chunk.js": "/rick-and-morty-react/static/js/787.cbb9de33.chunk.js",
+    "index.html": "/rick-and-morty-react/index.html",
+    "main.c9a81b37.css.map": "/rick-and-morty-react/static/css/main.c9a81b37.css.map",
+    "main.6c7f086a.js.map": "/rick-and-morty-react/static/js/main.6c7f086a.js.map",
+    "787.cbb9de33.chunk.js.map": "/rick-and-morty-react/static/js/787.cbb9de33.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9a81b37.css",
+    "static/js/main.6c7f086a.js"
+  ]
+}
