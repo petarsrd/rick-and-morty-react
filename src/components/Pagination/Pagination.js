@@ -39,7 +39,14 @@ class Pagination extends React.Component {
         {console.log(dugmici)}
         <button onClick={this.props.prev}>Previous</button>
         {dugmici.map((e) => {
-          return <button onClick={() => this.props.changePage(e)}>{e}</button>;
+          return (
+            <button
+              onClick={() => this.props.changePage(e)}
+              className={e === this.props.curPage ? "highlight" : ""}
+            >
+              {e}
+            </button>
+          );
         })}
         <button onClick={this.props.next}>Next</button>
       </>
